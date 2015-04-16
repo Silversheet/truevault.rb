@@ -19,7 +19,7 @@ module TrueVault
     # )
 
     def create(options = {})
-      query = { 
+      query = {
         query: {
           username: options[:username],
           password: options[:password],
@@ -59,7 +59,7 @@ module TrueVault
     # )
 
     def update(user_id, options = {})
-      query = { 
+      query = {
         query: {
           username: options[:username],
           password: options[:password],
@@ -75,6 +75,13 @@ module TrueVault
 
     def delete(user_id)
       self.class.delete("/#{@api_ver}/users/#{user_id}", default_options_to_merge_with)
+    end
+
+    def access_key(user_id)
+      self.class.post(
+        "/#{@api_ver}/users/#{user_id}/access_key",
+        default_options_to_merge_with
+      )
     end
   end
 end
