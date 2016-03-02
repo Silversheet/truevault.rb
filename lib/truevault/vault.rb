@@ -13,6 +13,13 @@ module TrueVault
       self.class.get("/#{@api_ver}/vaults", default_options_to_merge_with)
     end
 
+    # list all blobs in vault
+    # TVVault.blobs("00000000-0000-0000-0000-000000000000")
+
+    def blobs(vault_id)
+      self.class.get("/#{@api_ver}/vaults/#{vault_id}/blobs", default_options_to_merge_with)
+    end
+
     # creates a vault
     # TVVault.create("name")
 
