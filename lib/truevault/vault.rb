@@ -16,8 +16,10 @@ module TrueVault
     # list all blobs in vault
     # TVVault.blobs("00000000-0000-0000-0000-000000000000")
 
-    def blobs(vault_id)
-      self.class.get("/#{@api_ver}/vaults/#{vault_id}/blobs", default_options_to_merge_with)
+    def blobs(vault_id, page: 1, per_page: 100)
+      options = { query: { page: page, per_page: per_page } }
+      options.merge!(default_options_to_merge_with)
+      self.class.get("/#{@api_ver}/vaults/#{vault_id}/blobs", options)
     end
 
     # creates a vault
