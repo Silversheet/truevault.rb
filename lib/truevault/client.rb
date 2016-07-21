@@ -45,6 +45,14 @@ module TrueVault
       Base64.encode64(hash.to_json)
     end
 
+    def to_string(value = [])
+      if value.is_a?(Array)
+        value.join(",")
+      elsif value.is_a?(String)
+        value
+      end
+    end
+
     # api_key         should be a valid TrueVault API key
     # account_id      should be a valid TrueVault account ID
     # api_version     should be a valid API version (ex 'v1')

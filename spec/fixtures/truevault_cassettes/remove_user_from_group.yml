@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://REDACTED_ID:@api.truevault.com/v1/groups/REDACTED_ID?operation=REMOVE&user_ids=REDACTED_ID
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 20 Jul 2016 22:43:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '236'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/19.3.0
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"group": {"group_id": "3d88a00b-a87a-417c-ad12-bd01c4a9693a", "id":
+        "REDACTED_ID", "name": "sample", "policy": [], "user_ids": []}, "result":
+        "success", "transaction_id": "REDACTED_ID"}'
+    http_version: 
+  recorded_at: Wed, 20 Jul 2016 22:43:59 GMT
+recorded_with: VCR 2.5.0

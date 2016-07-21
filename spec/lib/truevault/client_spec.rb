@@ -51,7 +51,6 @@ describe TrueVault::Client do
     end
   end
 
-
   describe "create a document" do
     let(:real_document){ TrueVault::Document.new(ENV["TV_API_KEY"], ENV["TV_ACCOUNT_ID"], 'v1') }
     let(:create_document){ real_document.create(ENV["TV_A_VAULT_ID"],{"a" => "document"})}
@@ -117,15 +116,7 @@ describe TrueVault::Client do
     before do
       @real_client = TrueVault::User.new(ENV["TV_API_KEY"], ENV["TV_ACCOUNT_ID"], 'v1')
       VCR.insert_cassette 'create_user'
-      @options = {
-      username: "test_user_3",
-      password: "password",
-      attributes: {
-        "id" => "000",
-        "name" => "John",
-        "type" => "patient"
-        }
-      }
+      @options = attributes_for(:user, attributes: attributes_for(:user_attributes))
     end
 
     after do
@@ -135,6 +126,6 @@ describe TrueVault::Client do
     it "should have a success response" do
       @real_client.create(@options)["result"].must_equal "success"
     end
-    
+
   end
 end
