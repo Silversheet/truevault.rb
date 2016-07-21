@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://REDACTED_ID:@api.truevault.com/v1/groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 20 Jul 2016 22:59:27 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1789'
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/19.3.0
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"groups": [{"group_id": "d531a96c-ae06-4d08-9b6d-7e701bf7dc8a", "id":
+        "REDACTED_ID", "name": "FULL_ADMIN", "policy": [{"Activities": "CRUDA", "Resources":
+        ["Vault::.*"]}, {"Activities": "CRUDA", "Resources": ["Vault::.*::Schema::.*",
+        "Vault::.*::Document::.*", "Vault::.*::Blob::.*"]}, {"Activities": "CRUDA",
+        "Resources": ["Vault::.*::Search::.*"]}, {"Activities": "CRUDA", "Resources":
+        ["Account::.*", "User::.*", "Group::.*", "UserVault::.*"]}, {"Activities":
+        "CRUDA", "Resources": ["Client::.*"]}, {"Activities": "CRUDA", "Resources":
+        ["Scope::.*"]}]}, {"group_id": "1a4fd76f-b624-42c8-9516-3d058c262037",
+        "id": "REDACTED_ID", "name": "READ_ONLY", "policy": [{"Activities": "R", "Resources":
+        ["Vault::.*", "Vault::.*::Document::.*", "Vault::.*::Blob::.*"]}]}, {"group_id":
+        "65657c60-3ec6-4489-9c31-dd85254d4242", "id": "REDACTED_ID", "name": "sample-group",
+        "policy": []}, {"group_id": "85c34e4f-aa3e-4080-a4c9-149523c3ee69", "id":
+        "REDACTED_ID", "name": "WRITE_ONLY", "policy": [{"Activities": "C", "Resources":
+        ["Vault::.*::Document::.*", "Vault::.*::Blob::.*"]}]}], "result": "success",
+        "transaction_id": "REDACTED_ID"}'
+    http_version:
+  recorded_at: Wed, 20 Jul 2016 22:59:27 GMT
+recorded_with: VCR 2.5.0
