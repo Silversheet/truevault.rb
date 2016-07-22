@@ -83,5 +83,19 @@ module TrueVault
         default_options_to_merge_with
       )
     end
+
+    def access_token(user_id)
+      self.class.post(
+        "/#{@api_ver}/users/#{user_id}/access_token",
+        default_options_to_merge_with
+      )
+    end
+
+    def api_key(user_id)
+      self.class.post(
+        "/#{@api_ver}/users/#{user_id}/api_key",
+        default_options_to_merge_with
+      )
+    end
   end
 end
