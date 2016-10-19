@@ -25,13 +25,13 @@ module TrueVault
     end
 
     def update(group_id, options = {})
-      query = {}
-      query[:name] = options[:name] if options[:name]
-      query[:policy] = policy(options) if options[:policy]
-      query[:user_ids] = to_string(options[:user_ids]) if options[:user_ids]
-      query[:operation] = options[:operation] if options[:operation]
+      body = {}
+      body[:name] = options[:name] if options[:name]
+      body[:policy] = policy(options) if options[:policy]
+      body[:user_ids] = to_string(options[:user_ids]) if options[:user_ids]
+      body[:operation] = options[:operation] if options[:operation]
 
-      new_options = default_options_to_merge_with.merge(query: query)
+      new_options = default_options_to_merge_with.merge(body: body)
       self.class.put("/#{@api_ver}/groups/#{group_id}", new_options)
     end
 
