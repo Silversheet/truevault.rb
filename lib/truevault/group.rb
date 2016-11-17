@@ -4,7 +4,7 @@ module TrueVault
   class Group < Client
     def create(options = {})
       query = {
-        query: {
+        body: {
           name: options[:name],
           policy: policy(options),
           user_ids: to_string(options[:user_ids])
@@ -37,7 +37,7 @@ module TrueVault
 
     def add_users(group_id, user_ids)
       query = {
-        query: {
+        body: {
           user_ids: to_string(user_ids),
           operation: "APPEND"
           }
@@ -48,7 +48,7 @@ module TrueVault
 
     def remove_users(group_id, user_ids)
       query = {
-        query: {
+        body: {
           user_ids: to_string(user_ids),
           operation: "REMOVE"
           }
