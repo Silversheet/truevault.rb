@@ -31,6 +31,16 @@ module TrueVault
       self.class.put("/#{@api_ver}/vaults/#{vault_id}/documents/#{document_id}", options)
     end
 
+    def update_owner(vault_id, document_id, owner_id)
+      query = { body: { owner_id: owner_id } }
+      options = default_options_to_merge_with.merge(query)
+
+      self.class.put(
+        "/#{@api_ver}/vaults/#{vault_id}/documents/#{document_id}/owner",
+        options
+      )
+    end
+
     def all(vault_id)
       self.class.get("/#{@api_ver}/vaults/#{vault_id}/documents", default_options_to_merge_with)
     end
