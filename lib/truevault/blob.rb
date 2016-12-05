@@ -18,6 +18,16 @@ module TrueVault
       self.class.put("/#{@api_ver}/vaults/#{vault_id}/blobs/#{blob_id}", options)
     end
 
+    def update_owner(vault_id, blob_id, owner_id)
+      query = { body: { owner_id: owner_id } }
+      options = default_options_to_merge_with.merge(query)
+
+      self.class.put(
+        "/#{@api_ver}/vaults/#{vault_id}/blobs/#{blob_id}/owner",
+        options
+      )
+    end
+
     def delete(vault_id, blob_id, options = {})
       options.merge!(default_options_to_merge_with)
       self.class.delete("/#{@api_ver}/vaults/#{vault_id}/blobs/#{blob_id}", options)
